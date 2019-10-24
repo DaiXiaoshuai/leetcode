@@ -1,4 +1,4 @@
-package Problem8;
+package problem8;
 
 import org.junit.jupiter.api.Test;
 
