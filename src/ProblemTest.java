@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Test;
 import problem2.ListNode;
 import problem2.Solution;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.SocketHandler;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -48,6 +51,27 @@ public class ProblemTest {
     @Test
     public void testIntArrayToListNode(){
         assertArrayEquals(new int[] {8,0,7}, ListNode.toArray( ListNode.toList(new int[]{8,0,7})));
+    }
+    List<List<Integer>> helper(List<List<Integer>> data, int num){
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        for(List<Integer> item : data){
+            int length = item.size();
+            for(int i=0;i<=length;i++){
+                List<Integer> list = new ArrayList<Integer>(length + 1);
+                int j=0;
+                while(j<i){
+                    list.add(item.get(j));
+                    j++;
+                }
+                list.add(num);
+                while(j<length){
+                    list.add(item.get(j));
+                    j++;
+                }
+                result.add(list);
+            }
+        }
+        return result;
     }
 
     @Test
